@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<title>{% if page.name %}{{ page.name }} | {% endif %}{{ settings['site_name'] }}</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ settings['site_name'] }}">
+<meta property="og:title" content="{{ page.name ?? settings['site_name'] }}">
+<meta property="og:url" content="{{ request.canonical_url }}">
+<meta property="og:image" content="{{ asset('opengraph.png') }}">
+
+<link rel="manifest" href="{{ asset('site.webmanifest') }}">
+<link rel="apple-touch-icon" href="{{ asset('icon.png') }}">
+
+<link rel="stylesheet" href="{{ asset('theme.css') }}">
+
+<meta name="theme-color" content="#fafafa">
