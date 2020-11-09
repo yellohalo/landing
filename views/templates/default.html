@@ -2,8 +2,22 @@
 <html class="bg-gray-100 antialiased no-js" lang="en">
   <head>
     {% include 'includes/head' %}
+
+    <script>
+      WebFontConfig = {
+        typekit: { id: 'kpz2gnn' },
+        classes: false
+      };
+
+      (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+      })(document)
+    </script>
   </head>
-  <body class="text-gray-900">
+  <body class="text-gray-900 font-effra">
     {% block content %}{% endblock %}
   </body>
 </html>

@@ -1,0 +1,11 @@
+{% macro cyber_yellow(value='', link='#', name='', type='a', size='md') %}
+  {% if type === 'button' or type === 'submit' or type === 'reset' %}
+    <button type="{{ type }}" name="{{ name }}" class="">
+      {{ value }}
+    </button>
+  {% else %}
+    <{{ type }} href="{{ link }}" class="">
+      {{ value }}
+    </{{ type }}>
+  {% endif %}  
+{% endmacro %}
