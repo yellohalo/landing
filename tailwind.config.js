@@ -11,6 +11,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      boxShadow: {
+        outline: '0 0 0 3px rgba(246, 224, 94, 0.5)',
+      },
       colors: {
         'cyber-yellow': {
           50: '#FFFDF2',

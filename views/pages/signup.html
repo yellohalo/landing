@@ -1,1 +1,39 @@
 {% extends 'templates/default' %}
+
+{% block content %}
+<div class="min-h-screen h-full flex flex-col items-center justify-center">
+  <div class="max-w-xl px-6 py-8 sm:py-12">
+    <div class="h-12 sm:h-16">
+      <a href="/">
+        {% include 'includes/assets/logo' %}
+      </a>
+    </div>
+
+    <div class="mt-8 text-lg space-y-4 text-gray-800">
+      <p class="font-light text-xl sm:text-2xl mb-6">Broadband with the power to save lives.</p>
+
+      <p>100% of YelloHalo profits got to supporting frontline ambos and paramedics</p>
+
+      <p>Welcome to YelloHalo, a force for good, we are Aotearoa’s only charity-first broadband provider. Providing New Zealanders with world-class broadband and a way to give back to their community, we donate. 100% of profits to frontline ambulance workers.</p>
+
+      <p><strong>Show your support</strong></p>
+
+      <p>Launching on December 1, our goal is to give back $1 million to more than 1200 frontline ambos in year one. But we need your help! By signing up, you can help improve the lives of your hard working Ambos and paramedics*.</p>
+
+      <p>Plans start from just $89 with no contracts and 100% of profits to Ambos and Paramedics</p>
+
+      <p><strong>Sign me up on December 1st</strong></p>
+
+      {{ form('signup') }}
+
+      <p>Share this with friends, family and anyone you know who should give a damn about keeping Ambos and paramedics positively supported, connected and saving lives in your community.</p>
+
+      <p class="font-light text-xl sm:text-2xl mb-6">The more Kiwi’s who sign up to YelloHalo the faster we will get to $1m</p>
+
+      <p><small>100% of profits are gifted to the YelloHalo Ambos First Trust who administer trust funds on behalf of Ambulance Professionals First members around New Zealand.</small></p>
+    </div>
+
+    {% include "includes/footer" %}
+  </div>
+</div>
+{% endblock %}

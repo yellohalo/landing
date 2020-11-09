@@ -1,0 +1,25 @@
+{% extends 'templates/default' %}
+
+{% block content %}
+<div class="min-h-screen h-full flex flex-col items-center justify-center">
+  <div class="max-w-xl flex flex-col items-center justify-center px-6 py-8 sm:py-12">
+    <div class="h-12 sm:h-16">
+      <a href="/">
+        {% include 'includes/assets/logo' %}
+      </a>
+    </div>
+
+    <div class="mt-8 text-lg text-center space-y-4 text-gray-800">
+      <p class="font-light text-3xl leading-9">We will send you a sign up reminder on December 1st.</p>
+    </div>
+
+    <div class="mt-6">
+      <a href="/about" class="inline-flex items-center justify-center font-medium rounded-full focus:outline-none select-none flex-shrink-0 transition ease-in-out duration-150 px-8 py-3 text-lg leading-5 bg-cyber-yellow-500 hover:bg-cyber-yellow-400 focus:bg-cyber-yellow-600 text-black">
+        Learn more
+      </a>
+    </div>
+
+    {% include "includes/footer" %}
+  </div>
+</div>
+{% endblock %}

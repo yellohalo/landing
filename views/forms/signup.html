@@ -1,0 +1,31 @@
+{% import 'macros/form' as ui %}
+
+<div>
+  {{ form_open() }}
+    <input type="hidden" name="_form" value="{{ form._form }}">
+    <input type="hidden" name="redirect" value="/signup/thankyou">
+
+    <div class="space-y-3">
+      <div class="space-y-1">
+        <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
+        {{ ui.field(form.name) }}
+      </div>
+
+      <div class="space-y-1">
+        <label for="address" class="block font-medium text-sm text-gray-700">Address</label>
+        {{ ui.field(form.address) }}
+      </div>
+
+      <div class="space-y-1">
+        <label for="email" class="block font-medium text-sm text-gray-700">Email Address</label>
+        {{ ui.field(form.email) }}
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <button type="submit" class="inline-flex items-center justify-center font-medium rounded-full focus:outline-none select-none flex-shrink-0 transition ease-in-out duration-150 px-8 py-3 text-lg leading-5 bg-cyber-yellow-500 hover:bg-cyber-yellow-400 focus:bg-cyber-yellow-600 text-black">
+        Sign Up
+      </button>
+    </div>
+  {{ form_close() }}
+</div>

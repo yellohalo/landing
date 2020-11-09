@@ -1,0 +1,98 @@
+{% macro placeholder(data) %}
+  <input type="{{ data.type }}" id="{{ data.name }}" name="{{ data.name }}" value="{{ data.value }}" placeholder="{{ data.help_text }}" {% if data.required %}required{% endif %} class="block w-full appearance-none px-3 py-2 bg-white border border-gray-300 placeholder-gray-500 text-gray-900 leading-5 focus:outline-none focus:border-yellow-600 focus:shadow-outline rounded-md transition-colors duration-150 ease-in-out">
+{% endmacro %}
+
+{% macro input(data) %}
+  <input type="{{ data.type }}" id="{{ data.name }}" name="{{ data.name }}" value="{{ data.value }}" {% if data.required %}required{% endif %} class="block w-full appearance-none px-3 py-2 bg-white border border-gray-300 placeholder-gray-500 text-gray-900 leading-5 focus:outline-none focus:border-yellow-600 focus:shadow-outline rounded-md transition-colors duration-150 ease-in-out">
+{% endmacro %}
+
+{% macro textarea(data) %}
+  <textarea name="{{ data.name }}" placeholder="{{ data.label }} {% if data.required %}*{% endif %}" class="form-control" {% if data.required %}required{% endif %}>{{ data.value }}</textarea>
+{% endmacro %}
+
+{% macro checkbox(data) %}
+  {% for item in data.options %}
+  <label class="form-check">
+    <input type="checkbox" name="{{ data.name }}[]" value="{{ item.value }}" />
+    <span class="form-check-label">{{ item.value }}</span>
+  </label>
+  {% endfor %}
+{% endmacro %}
+
+{% macro radio(data) %}
+  {% for item in data.options %}
+  <label class="form-check">
+    <input type="radio" name="{{ data.name }}" value="{{ item.value }}" />
+    <span class="form-check-label">{{ item.label }}</span>
+  </label>
+  {% endfor %}
+{% endmacro %}
+
+{% macro select(data) %}
+<select name="{{ data.name }}" value="{{ data.value }}" class="form-control">
+  <option value="">{{ data.label }} (Select) {% if data.required %}*{% endif %} </option>
+  {% for item in data.options %}
+    <option value="{{ item.value }}">{{ item.value }}</option>
+  {% endfor %}
+</select>
+{% endmacro %}
+
+{% macro selectApply(data) %}
+<select name="{{ data.name }}" value="{{ data.value }}" class="form-control">
+  <option value="">Please select</option>
+  {% for item in data.options %}
+    <option value="{{ item.value }}">{{ item.value }}</option>
+  {% endfor %}
+</select>
+{% endmacro %}
+
+{% macro errors(message) %}
+  <small class="form-text text-danger">{{ message }}</small>
+{% endmacro %}
+
+{% macro field(data) %}
+<div class="form-group">
+  {% if data.type == 'checkbox' %}
+    {{ _self.checkbox(data) }}
+  {% elseif data.type == 'radio' %}
+    {{ _self.radio(data) }}
+  {% elseif data.type == 'select' %}
+    {{ _self.select(data) }}
+  {% elseif data.type == 'textarea' %}
+    {{ _self.textarea(data) }}
+  {% else %}
+    {{ _self.placeholder(data) }}
+  {% endif %}
+
+  {{ _self.errors(data.errors) }}
+</div>
+{% endmacro %}
+
+
+
+
+{% macro apply(data) %}
+<div class="form-group">
+  {% if data.type != 'checkbox' %}
+    <label for="{{ data.name }}">{{ data.label }} {% if data.required %}*{% endif %}</label>
+  {% endif %}
+
+  {% if data.type == 'checkbox' %}
+    {{ _self.checkbox(data) }}
+  {% elseif data.type == 'radio' %}
+    {{ _self.radio(data) }}
+  {% elseif data.type == 'select' %}
+    {{ _self.selectApply(data) }}
+  {% elseif data.type == 'textarea' %}
+    {{ _self.textarea(data) }}
+  {% else %}
+    {{ _self.input(data) }}
+  {% endif %}
+
+  {% if data.helpText %}
+    <small class="form-text text-muted">{{ data.helpText }}</small>
+  {% endif %}
+
+  {{ _self.errors(data.errors) }}
+</div>
+{% endmacro %}
